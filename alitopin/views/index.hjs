@@ -7,5 +7,8 @@
   <body>
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
+    <p>
+      <a href="/search">进入搜索</a>
+    </p>
   </body>
 </html>

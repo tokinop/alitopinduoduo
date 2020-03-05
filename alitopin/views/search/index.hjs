@@ -1,0 +1,7 @@
+<p>
+    <form method="POST" >
+        <input name="url" />
+        <input type="submit" value="提交">
+    </form>
+
+</p>
