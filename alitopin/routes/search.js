@@ -77,11 +77,7 @@ async function processAliByKey(key) {
         encoding: null,
         uri: `https://s.1688.com/daixiao/rpc_async_render.jsonp?keywords=${key}&n=y&buyerProtection=essxsfh&filt=y&qrwRedirectEnabled=false&uniqfield=pic_tag_id&beginPage=1&templateConfigName=daixiaoOfferresult&offset=0&pageSize=60&asyncCount=60&startIndex=0&async=true&enableAsync=true&rpcflag=new&_pageName_=%B4%FA%CF%FA%CB%D1%CB%F7&requestId=1258418016001583431970317000554&callback=jQuery1720936899361631119_1583431635808`,
         transform: function (body) {
-            // let removeStr='jQuery1720936899361631119_1583431635808(';
             body = iconv.decode(body, 'gbk');
-            // body=body.substring(0,body.length-1);
-            // body=body.substring(40,body.length-1);
-            // body=body.replace(new RegExp(removeStr), "");
             return body;
         }
     };
@@ -94,7 +90,7 @@ async function processAliByKey(key) {
         let htmlStr = jsonStr.substring(htmlStart, htmlEnd)
         let $ = cheerio.load(htmlStr);
         let itemNodes = $('a.sm-offer-photoLink.sw-dpl-offer-photoLink');
-        console.log(itemNodes.length);
+        // console.log(itemNodes.length);
         let items = [];
         itemNodes.each(function (i, element) {
             let item = {};
@@ -102,7 +98,7 @@ async function processAliByKey(key) {
             item.url = element.attribs.href;
             items.push(item);
         });
-        console.log(items);
+        // console.log(items);
         return items;
     } catch (error) {
         throw error;
