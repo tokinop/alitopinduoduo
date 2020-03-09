@@ -12,7 +12,10 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hjs');
+app.set('view engine', 'html');
+app.set('layout','base');
+app.enable('view cache') ;
+app.engine('html', require('hogan-express'));
 
 app.use(logger('dev'));
 app.use(express.json());
